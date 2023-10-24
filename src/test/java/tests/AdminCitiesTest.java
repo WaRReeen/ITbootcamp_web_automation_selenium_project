@@ -19,5 +19,16 @@ public class AdminCitiesTest extends BasicTest{
                 baseUrl + "/admin/cities",
                 "User should be redirected on the Cities page.");
     }
+    @Test (priority = 2, retryAnalyzer = RetryAnalyzer.class)
+    public void checksInputTypesForCreateOrEditNewCity () {
+        navPage.clickOnTheAdminButton();
+        navPage.waitForTheListFromAdminButtonToBeVisible();
+        navPage.clickOnTheCitiesLinkFromAdminList();
+        citiesPage.clickOnTheNewItemButton();
+        citiesPage.waitForNewItemDialogToBeVisible();
+        Assert.assertEquals(citiesPage.getAttributeTypeForInputFromNewItemDialog(),
+                "text",
+                "Attribute type for input from PopUp message after clicking on New Item button should be 'text'");
+    }
 
 }
