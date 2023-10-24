@@ -26,5 +26,35 @@ public class LoginTests extends BasicTest{
                 "password",
                 "Attribute type for the password input should have the value 'password'.");
     }
+    @Test (priority = 3, retryAnalyzer = RetryAnalyzer.class)
+    public void displaysErrorsWhenUserDoesNotExist () {
+        String email = "non-existing-user@gmal.com";
+        String password = "password123";
+
+        navPage.clickOnTheLoginButton();
+        loginPage.login(email, password);
+        messagePopUpPage.waitForThePopUpToBeVisible();
+        Assert.assertEquals(messagePopUpPage.getTheTextFromPopUpMessage(),
+                "User does not exists",
+                "Pop up message when credential are wrong should be 'User does not exist'.");
+        Assert.assertEquals(driver.getCurrentUrl(),
+                baseUrl + "/login",
+                "Current URL should contain '/login'.");
+    }
+    @Test (priority = 4, retryAnalyzer = RetryAnalyzer.class)
+    public void displaysErrorsWhenPasswordIsWrong () {
+        String email = "admin@admin.com";
+        String password = "password123";
+
+        navPage.clickOnTheLoginButton();
+        loginPage.login(email, password);
+        messagePopUpPage.waitForThePopUpToBeVisible();
+        Assert.assertEquals(messagePopUpPage.getTheTextFromPopUpMessage(),
+                "Wrong password",
+                "Pop up message when password is wrong should be 'Wrong password'.");
+        Assert.assertEquals(driver.getCurrentUrl(),
+                baseUrl + "/login",
+                "Current URL should contain 'login'.");
+    }
 
 }
