@@ -56,5 +56,19 @@ public class LoginTests extends BasicTest{
                 baseUrl + "/login",
                 "Current URL should contain 'login'.");
     }
+    @Test (priority = 5, retryAnalyzer = RetryAnalyzer.class)
+    public void login () throws InterruptedException {
+        String email = "admin@admin.com";
+        String password = "12345";
 
+        navPage.clickOnTheLoginButton();
+        loginPage.login(email, password);
+        wait    .withMessage("Current URL should contain 'home'.")
+                .until(ExpectedConditions.urlToBe(baseUrl + "/home"));
+    }
+    @Test (priority = 6, retryAnalyzer = RetryAnalyzer.class)
+    public void logout () throws InterruptedException {
+        navPage.waitForTheLogoutButtonToBeVisible();
+        navPage.clickOnTheLogOutButton();
+    }
 }
