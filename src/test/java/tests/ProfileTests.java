@@ -49,12 +49,12 @@ public class ProfileTests extends BasicTest{
         navPage.clickOnTheLogOutButton();
     }
     @Test (priority = 3, retryAnalyzer = RetryAnalyzer.class)
-    public void editsProfile () {
+    public void editProfile () {
         String email = "admin@admin.com";
         String password = "12345";
-        String name = "Mika Mikic";
+        String name = "Pera Peric";
         String phone = "+38161283223";
-        String city = "Bucaramanga";
+        String city = "Bucaraewsd";
         String twitter = "https://twitter.com/profile/milan1232";
         String gitHub = "https://github.com";
 
