@@ -70,6 +70,7 @@ public class NavPage extends BasicPage{
     public  void clickOnTheLogOutButton () {
         getTheLogOutButton().click();
     }
+
     public WebElement getTheLanguageSelectionButton () {
         return driver.findElement(By.className("btnLocaleActivation"));
     }
