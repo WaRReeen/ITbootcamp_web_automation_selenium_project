@@ -10,5 +10,76 @@ public class NavPage extends BasicPage{
     public NavPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
+    public WebElement getTheHomeButton() {
+        return driver.findElement(By.cssSelector("div.v-toolbar__items a[href='/']"));
+    }
+    public void clickOnTheHomeButton() {
+        getTheHomeButton().click();
+    }
+    public WebElement getTheAboutButton() {
+        return driver.findElement(By.cssSelector("div.v-toolbar__items a[href='/about']"));
+    }
+    public void clickOnTheAboutButton() {
+        getTheAboutButton().click();
+    }
+    public WebElement getTheMyProfileButton () {
+        return driver.findElement(By.cssSelector("div.v-toolbar__items a[href='/profile']"));
+    }
+    public void clickOnTheMyProfileButton () {
+        getTheMyProfileButton().click();
+    }
+    public WebElement getTheAdminButton () {
+        return driver.findElement(By.className("btnAdmin"));
+    }
+    public void clickOnTheAdminButton () {
+        getTheAdminButton().click();
+    }
+    public void waitForTheListFromAdminButtonToBeVisible () {
+        wait    .withMessage("After clicking on the admin button the list below should be visible.")
+                .until(ExpectedConditions.visibilityOf
+                        (driver.findElement
+                        (By.cssSelector("div[role='menu'].menuable__content__active div.v-list"))));
+    }
+    public WebElement getTheCitiesLinkFromAdminList () {
+        return driver.findElement(By.cssSelector("a[href='/admin/cities']"));
+    }
+    public void clickOnTheCitiesLinkFromAdminList () {
+        getTheCitiesLinkFromAdminList().click();
+    }
+    public WebElement getTheUsersFromAdminList () {
+        return driver.findElement(By.cssSelector("a[href='/admin/users']"));
+    }
+    public void clickOnTheUsersLinkFromAdminList () {
+        getTheUsersFromAdminList().click();
+    }
+    public WebElement getTheSignUpButton () {
+        return driver.findElement(By.cssSelector("div.v-toolbar__items a[href='/signup']"));
+    }
+    public void clickOnTheSignUpButton () {
+        getTheSignUpButton().click();
+    }
+    public WebElement getLoginButton () {
+        return driver.findElement(By.cssSelector("div.v-toolbar__items a[href='/login']"));
+    }
+    public void clickOnTheLoginButton() {
+        getLoginButton().click();
+    }
+    public WebElement getTheLogOutButton () {
+        return driver.findElement(By.className("btnLogout"));
+    }
+    public  void clickOnTheLogOutButton () {
+        getTheLogOutButton().click();
+    }
+    public WebElement getTheLanguageSelectionButton () {
+        return driver.findElement(By.className("btnLocaleActivation"));
+    }
+    public void clickOnTheLanguageSelectionButton () {
+        getTheLanguageSelectionButton().click();
+    }
+    public void waitForTheListFromLanguageSelectionButtonToBeVisible () {
+        wait    .withMessage("After clicking on the selection button the list below should be visible.")
+                .until(ExpectedConditions.visibilityOf
+                        (driver.findElement(By.cssSelector("div.v-menu__content div.v-list"))));
+    }
 
 }
