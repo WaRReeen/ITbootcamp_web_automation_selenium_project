@@ -32,4 +32,12 @@ public class MessagePopUpPage extends BasicPage {
         getTheCloseButtonFromPopUpMessage().click();
     }
 
+    public void waitForThePopUpMessageWhenUserSignupToBeVisible() {
+        wait.withMessage("Popup message when user signup should be visible.")
+                .until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("div.v-card"))));
+    }
+
+    public WebElement getPopUpMessageWhenUserSignUp() {
+        return driver.findElement(By.cssSelector("div.v-card div.v-card__title"));
+    }
 }
