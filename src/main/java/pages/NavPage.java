@@ -81,5 +81,40 @@ public class NavPage extends BasicPage{
                 .until(ExpectedConditions.visibilityOf
                         (driver.findElement(By.cssSelector("div.v-menu__content div.v-list"))));
     }
+    public WebElement getTheEnglishLanguageItem () {
+        return driver.findElement(By.cssSelector("span.f-gb"));
+    }
+    public void selectEnglishLanguage () {
+        getTheEnglishLanguageItem().click();
+    }
+    public WebElement getTheSpanishLanguageItem () {
+        return driver.findElement(By.cssSelector("span.f-es"));
+    }
+    public void selectSpanishLanguage () {
+        getTheSpanishLanguageItem().click();
+    }
+    public WebElement getTheFrenchLanguageItem () {
+        return driver.findElement(By.cssSelector("span.f-fr"));
+    }
+    public void selectFrenchLanguage() {
+        getTheFrenchLanguageItem().click();
+    }
+    public WebElement getTheChineseLanguageItem () {
+        return driver.findElement(By.cssSelector("span.f-cn"));
+    }
+    public void selectChineseLanguage () {
+        getTheChineseLanguageItem().click();
+    }
+    public WebElement getTheUkranianLanguageItem () {
+        return driver.findElement(By.cssSelector("span.f-ua"));
+    }
+    public void selectUkranianLanguage () {
+        getTheUkranianLanguageItem().click();
+    }
+
+    public void waitForTheLogoutButtonToBeVisible () {
+        wait    .withMessage("Button Logout should be visible.")
+                .until(ExpectedConditions.visibilityOf(getTheLogOutButton()));
+    }
 
 }
