@@ -47,4 +47,10 @@ public class SignupPage extends BasicPage{
     public String getAttributeTypeForConfirmPasswordInput () {
         return getTheConfirmPasswordInput().getAttribute("type");
     }
+    public WebElement getTheSingMeUpButton () {
+        return driver.findElement(By.cssSelector("button[type='submit']"));
+    }
+    public void clickOnTheSingMeUpButton () {
+        getTheSingMeUpButton().click();
+    }
 }
